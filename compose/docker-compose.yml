@@ -1,0 +1,17 @@
+version: '2.2'
+
+services:
+  wordpress:
+    image: wordpress
+    restart: unless-stopped
+    ports:
+      - 80:80
+    environment:
+      WORDPRESS_DB_HOST: mysql
+      WORDPRESS_DB_PASSWORD: hackme
+
+  mysql:
+    image: mariadb:10
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: hackme
